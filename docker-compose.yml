@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  lemonsaurus:
+    image: lymmers/lymmers.com:latest
+    build:
+      context: .
+      dockerfile: server/lymmers.Dockerfile
+    container_name: lymmers
+    restart: always
+    ports:
+      - 8008:8008
+    env_file:
+      - .env
+    volumes:
+      - ./lymmers/:/lymmers/
