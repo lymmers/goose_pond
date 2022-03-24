@@ -1,0 +1,32 @@
+name: Hoplite deployment
+
+# Only when pushing to master
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out main branch
+      - uses: actions/checkout@main
+
+      # Build and publish the docker image
+      - name: Publish to DockerHub
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: lymmers/lymmers.com
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+          dockerfile: server/lymmers.Dockerfile
+
+      # Deploy via Hoplite
+      - name: Send a webhook to Hoplite
+        uses: distributhor/workflow-webhook@v1.0.2
+        env:
+          webhook_auth: ${{ secrets.WEBHOOK_AUTH }}
+          webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
+          webhook_url: ${{ secrets.WEBHOOK_URL }}
+          data: '{"service": "lymmers.com"}'
