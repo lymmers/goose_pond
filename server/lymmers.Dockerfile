@@ -12,4 +12,4 @@ RUN pipenv lock --requirements > requirements.txt
 RUN pip install -r requirements.txt
 
 # Start the server
-CMD ["gunicorn", "--preload", "-b", "0.0.0.0:8008", "lymmers.wsgi:app"]
+CMD ["gunicorn", "--preload", "-b", "0.0.0.0:8008", "project.wsgi:application", "--threads", "4", "-w", "2"]

@@ -1,13 +1,19 @@
 [[source]]
+name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-name = "pypi"
-
-[packages]
-flask = "*"
-gunicorn = "*"
 
 [dev-packages]
+flake8 = "*"
+
+[packages]
+Django = "*"
+gunicorn = "~=20.0.4"
+psycopg2-binary = "~=2.8.6"
+whitenoise = "*"
 
 [requires]
 python_version = "3.8"
+
+[scripts]
+start = "gunicorn --preload -b 0.0.0.0:8020 project.wsgi:application --threads 8 --workers 4"
