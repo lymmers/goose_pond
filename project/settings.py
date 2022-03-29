@@ -29,7 +29,7 @@ else:
     DEBUG = False
 
 if not DEBUG:
-    ALLOWED_HOSTS = ["lymmers.com"]
+    ALLOWED_HOSTS = ["lymmers.com", "www.lymmers.com"]
 else:
     ALLOWED_HOSTS = ["0.0.0.0", "localhost", "127.0.0.1"]
 
