@@ -5,7 +5,7 @@ services:
     image: lymmers/lymmers.com:latest
     build:
       context: .
-      dockerfile: server/lymmers.Dockerfile
+      dockerfile: Dockerfile
     container_name: lymmers
     restart: always
     ports:
@@ -13,4 +13,5 @@ services:
     env_file:
       - .env
     volumes:
-      - ./lymmers/:/lymmers/
+      - ./apps/:/apps/
+      - ./project/:/project/
