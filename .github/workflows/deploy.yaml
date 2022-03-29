@@ -20,7 +20,6 @@ jobs:
           name: lymmers/lymmers.com
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-          dockerfile: server/lymmers.Dockerfile
 
       # Deploy via Hoplite
       - name: Send a webhook to Hoplite
