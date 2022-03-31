@@ -1,1 +1,22 @@
-<h1>Quack Quack</h1>
+{% load static %}
+<html>
+    <head>
+        <title>James</title>
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+        <script src="{% static 'js/goose_flipper.js' %}"></script> 
+    </head>
+    
+    <body>
+        <img id="top-bar-image" src="{% static 'images/top_bar.png' %}">
+        
+        <!-- THE GEESE -->
+        <div class="goose flipped"><img src="{% static 'images/goose.png' %}"></div>
+        <div class="goose" style="left:400px;"><img src="{% static 'images/goose.png' %}"></div>
+    
+    </body>
+
+
+
+
+
+</html>

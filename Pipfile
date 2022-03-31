@@ -16,4 +16,4 @@ whitenoise = "*"
 python_version = "3.8"
 
 [scripts]
-start = "gunicorn --preload -b 0.0.0.0:8020 project.wsgi:application --threads 8 --workers 4"
+start = "python manage.py runserver"
