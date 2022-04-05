@@ -19,11 +19,11 @@ function getRandomInt(min, max) {
 }
 
 /* Javascript that runs as the page is loaded */
-document.addEventListener("DOMContentLoaded", function() {
-    var geese = document.getElementsByClassName("goose")
-   
-    for (const goose in geese) {
-        goose.style.left = "400px";
-    }
+$(document).ready(function() {
+
+    $(".goose").each(function() {
+        var animationSpeed = getRandomArbitrary(15.0, 30.0)
+        $(this).css("animation-duration", `${animationSpeed}s`)
+    })
 
 });

@@ -11,9 +11,83 @@ body {
 }
 
 .goose.flipped {
-    transform: scaleX(-1);
+    animation-name            : swim-flipped;
 }
 
 .goose {
     position: absolute;
+    animation-name            : swim;
+    animation-iteration-count : infinite;
+    animation-timing-function : cubic-bezier(.47,.19,.51,.8);
+}
+
+.goose-container {
+    width: 100%;
+    height: 130px;
+}
+
+@keyframes swim {
+    from {
+        left: 80%;
+        transform: scaleX(1);
+    }
+    47% {
+        transform: scaleX(1);
+    }
+    50% {
+        left: 5%;
+        transform: scaleX(-1);
+    }
+    97% {
+        transform: scaleX(-1);
+    }
+    to {
+        left: 80%;
+        transform: scaleX(1);
+    }
+}
+
+@keyframes swim-flipped {
+    from {
+        left: 5%;
+        transform: scaleX(-1);
+    }
+    47% {
+        transform: scaleX(-1);
+    }
+    50% {
+        left: 80%;
+        transform: scaleX(1);
+    }
+    97% {
+        transform: scaleX(1);
+    }
+    to {
+        left: 5%;
+        transform: scaleX(-1);
+    }
+}
+
+@keyframes swim-far {
+    from {
+        left: 85%;
+    }
+    50% {
+        left: 0%;
+    }
+    to {
+        left: 85%;
+    }
+}
+
+@keyframes swim-far-flipped {
+    from {
+        left: 0%;
+    }
+    50% {
+        left: 85%;
+    }
+    to {
+        left: 0%;
+    }
 }
