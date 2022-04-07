@@ -1,0 +1,20 @@
+html {
+    background-color: #151829 !important;
+}
+
+.chatbox {
+    margin-bottom: 0 !important;
+    margin-top: 30%;
+    max-height: 184;
+    overflow-y: scroll;
+
+}
+
+.user-bubble {
+    float: right;
+}
+
+.tag {
+    border-radius: 20px !important;
+
+}

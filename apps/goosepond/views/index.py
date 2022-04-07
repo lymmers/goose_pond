@@ -1,14 +1,12 @@
 from django.views import View
 from django.shortcuts import render
-import random
 
-random.seed()
 
 GEESE = [
-    {"url": "https://google.com", "color": random.randint(0, 360), "flipped": True}, 
-    {"url": "https://yahoo.com", "color": random.randint(0, 360), "flipped": False}, 
-    {"url": "https://ask.com", "color": random.randint(0, 360), "flipped": True}, 
-    {"url": "https://altavista.com", "color": random.randint(0, 360), "flipped": False}, 
+    {"url": "https://google.com", "flipped": True, "image": "images/pilgrim_goose.png"}, 
+    {"url": "https://yahoo.com", "flipped": False, "image": "images/embden_goose.png"}, 
+    {"url": "/therapy", "flipped": True, "image": "images/therapy_goose.png"},
+    {"url": "https://bing.com", "flipped": False, "image": "images/embden_goose.png"},
 ]
 
 class Index(View):

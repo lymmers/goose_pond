@@ -11,9 +11,10 @@ Django = "*"
 gunicorn = "~=20.0.4"
 psycopg2-binary = "~=2.8.6"
 whitenoise = "*"
+django-simple-bulma = "*"
 
 [requires]
 python_version = "3.8"
 
 [scripts]
-start = "python manage.py runserver"
+start = "docker-compose up"
