@@ -4,9 +4,7 @@ html {
 }
 
 .office {
-    width: 100%; 
-    position: absolute; 
-    z-index: -1;
+    width: 100%;
 }
 
 #session,
@@ -18,13 +16,15 @@ html {
     cursor: pointer;
 }
 
+.hidden {
+    display:none;
+}
+
 .chatbox {
     margin-bottom: 0 !important;
-    margin-top: 60%;
     min-height: 184;
     max-height: 184;
     overflow-y: scroll;
-
 }
 
 .bubble {

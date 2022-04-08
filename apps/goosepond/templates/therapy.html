@@ -5,21 +5,36 @@
         <title>James</title>
         <link rel="stylesheet" href="{% static 'css/therapy.css' %}">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="{% static 'js/imageMapResizer.min.js' %}"></script>
+
         <script src="{% static 'js/therapy.js' %}"></script>
         {% bulma %}
         {% font_awesome %}
     </head>
     
     <body>
+        <!-- Sound effects -->
         <audio id="therapy-enter">
             <source src="{% static '/sounds/goose_knocking_shit_over.ogg' %}" type="audio/ogg">
         </audio>
-        <img id="waiting" class="office" usemap="#door-map" src="{% static '/images/therapy_office_waiting.png' %}">
-        <img id="session" class="office" usemap="#door-map" src="{% static '/images/therapy_office_in_session.png' %}">
-        <img id="leaving" class="office" usemap="#door-map" src="{% static '/images/therapy_office_in_session_door_open.png' %}">
-        <map id="door-map">
-            <area id="door-area" href="#" coords="713,103,899,363" shape="rect">
-        </map>
+        <audio id="therapy-leave">
+            <source src="{% static '/sounds/door_open.ogg' %}" type="audio/ogg">
+        </audio>
+
+        <!-- Image sources -- these are not actually rendered, just pre-rendered. -->
+        <img id="waiting" class="hidden" src="{% static '/images/therapy_office_waiting.png' %}">
+        <img id="session" class="hidden" src="{% static '/images/therapy_office_in_session.png' %}">
+        <img id="leaving" class="hidden" src="{% static '/images/therapy_office_in_session_door_open.png' %}">
+
+        <!-- Image and image map -->
+        <div>
+            <img class="office" id="active-office" usemap="#door-map" src="{% static '/images/therapy_office_waiting.png' %}">
+            <map name="door-map" id="door-map">
+                <area id="door-area" href="/" coords="717,105 753,112 838,115 871,113 872,172 871,238 895,361 822,360 787,357 743,350 718,106 728,107 732,227 " shape="polygon">
+            </map>
+        </div>
+
+        <!-- Chat -->
         <div class="columns is-mobile">
             <div class="column is-half is-offset-one-quarter">
                 <!--This is the chatbox-->

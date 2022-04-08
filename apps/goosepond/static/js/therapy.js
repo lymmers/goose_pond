@@ -1,15 +1,15 @@
 const gooseNames = ["Honk Schrader", "Waddler White", "Goostavo Fring", "Jesse Honkman"]
 const gooseHonks = [
     "HONK!", 
-    "<i>Stares at you blankly</i>", 
-    "<i>Attempts to bite you</i>", 
-    "<i>Looks around nervously</i>",
+    "<i>*Stares at you blankly*</i>",
+    "<i>*Attempts to bite you*</i>",
+    "<i>*Looks around nervously*</i>",
     "H..Honk?",
     "HoooOOonk!",
     "Qua--- HONK!",
     "Honk honk",
-    "<i>Honks confidently</i>",
-    "<i>Waddles around and knocks more stuff over</i>"
+    "<i>*Honks confidently*</i>",
+    "<i>*Waddles around and knocks more stuff over*</i>"
 ]
 
 function getRandomHonk() {
@@ -28,12 +28,14 @@ function scrollDown() {
 
 
 $(document).ready(function() {
-    var body = $(".chatbox .message-body")
-    var bodytext = "<p>Waiting to connect to a licensed goose therapist.</p>"
-    var input = $(".input")
+    $('map').imageMapResize();
+    var body = $(".chatbox .message-body");
+    var bodytext = "<p>Waiting to connect to a licensed goose therapist.</p>";
+    var input = $(".input");
+    var readyForInput = false;
 
-    body.html(bodytext)
-    input.prop("disabled", true)
+    body.html(bodytext);
+    input.prop("disabled", true);
 
     setTimeout(function() {
         bodytext = "<p>Waiting to connect to a licensed goose therapist..</p>"
@@ -53,10 +55,10 @@ $(document).ready(function() {
     setTimeout(function() {
         bodytext += `<p>You have been connected to <b>Dr. ${getRandomGoose()}</b></p><br>`
         body.html(bodytext);
-        input.prop("disabled", false)
-        $("#therapy-enter")[0].play()
-        $("#session").show()
-        $("#waiting").hide()
+        input.prop("disabled", false);
+        $("#therapy-enter")[0].play();
+        $("#active-office").attr("src", $("#session").attr("src"));
+        readyForInput = true;
     }, 4000); 
 
     //set up event listeners
@@ -97,9 +99,18 @@ $(document).ready(function() {
                     scrollDown()
                     input.prop("disabled", false)
                 }, 2500); 
-                
-                
             }
+        }
+    })
+
+    $("#door-area").hover(function() {
+        if (readyForInput) {
+            $("#active-office").attr("src", $("#leaving").attr("src"));
+            $("#therapy-leave")[0].play();
+        }
+    }, function() {
+        if (readyForInput) {
+            $("#active-office").attr("src", $("#session").attr("src"));
         }
     })
 })
