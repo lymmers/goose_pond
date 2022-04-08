@@ -14,8 +14,12 @@
         <audio id="therapy-enter">
             <source src="{% static '/sounds/goose_knocking_shit_over.ogg' %}" type="audio/ogg">
         </audio>
-        <img id="waiting" class="office" src="{% static '/images/therapy_office_waiting.png' %}">
-        <img id="session" class="office" src="{% static '/images/therapy_office_in_session.png' %}">
+        <img id="waiting" class="office" usemap="#door-map" src="{% static '/images/therapy_office_waiting.png' %}">
+        <img id="session" class="office" usemap="#door-map" src="{% static '/images/therapy_office_in_session.png' %}">
+        <img id="leaving" class="office" usemap="#door-map" src="{% static '/images/therapy_office_in_session_door_open.png' %}">
+        <map id="door-map">
+            <area id="door-area" href="#" coords="713,103,899,363" shape="rect">
+        </map>
         <div class="columns is-mobile">
             <div class="column is-half is-offset-one-quarter">
                 <!--This is the chatbox-->

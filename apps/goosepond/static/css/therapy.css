@@ -9,8 +9,13 @@ html {
     z-index: -1;
 }
 
-#session {
+#session,
+#leaving {
     display: none;
+}
+
+#door-area {
+    cursor: pointer;
 }
 
 .chatbox {
@@ -23,12 +28,20 @@ html {
 }
 
 .bubble {
-    min-height: 40px;
     margin-bottom: 3px;
+    white-space: normal !important; 
+    word-break: break-word;
+    max-width: 50%;
+    height: fit-content !important;
+}
+
+.doctor-bubble {
+    margin-right: 50%
 }
 
 .user-bubble {
     float: right;
+    margin-left: 50%;
 }
 
 .tag {

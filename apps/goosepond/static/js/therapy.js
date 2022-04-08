@@ -65,7 +65,7 @@ $(document).ready(function() {
         if (event.which == 13) {
             var inputContent = input.val()
             if (inputContent != ""){
-                bodytext += `<div class="bubble"><span class="tag is-info is-large user-bubble">${inputContent}</span><br></div>`
+                bodytext += `<span class="bubble tag is-info is-large user-bubble">${inputContent}</span><br>`
                 body.html(bodytext)
                 input.val("")
                 scrollDown()
@@ -74,25 +74,25 @@ $(document).ready(function() {
                 //Delayed honking
                 var preHonkBodyText = bodytext
                 setTimeout(function() {
-                    bodytext = preHonkBodyText + `<div class="bubble"><span class="tag is-primary is-large">.</span></div>`
+                    bodytext = preHonkBodyText + `<span class="doctor-bubble bubble tag is-primary is-large">.</span>`
                     body.html(bodytext);
                     scrollDown()
                 }, 500); 
 
                 setTimeout(function() {
-                    bodytext = preHonkBodyText + `<div class="bubble"><span class="tag is-primary is-large">..</span></div>`
+                    bodytext = preHonkBodyText + `<span class="doctor-bubble bubble tag is-primary is-large">..</span>`
                     body.html(bodytext);
                     scrollDown()
                 }, 1000); 
 
                 setTimeout(function() {
-                    bodytext = preHonkBodyText + `<div class="bubble"><span class="tag is-primary is-large">...</span></div>`
+                    bodytext = preHonkBodyText + `<span class="doctor-bubble bubble tag is-primary is-large">...</span>`
                     body.html(bodytext);
                     scrollDown()
                 }, 1500); 
 
                 setTimeout(function() {
-                    bodytext = preHonkBodyText + `<div class="bubble"><span class="tag is-primary is-large">${getRandomHonk()}</span></div>`
+                    bodytext = preHonkBodyText + `<span class="doctor-bubble bubble tag is-primary is-large">${getRandomHonk()}</span>`
                     body.html(bodytext);
                     scrollDown()
                     input.prop("disabled", false)
