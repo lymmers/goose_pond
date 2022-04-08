@@ -6,10 +6,7 @@ const gooseHonks = [
     "<i>Looks around nervously</i>",
     "H..Honk?",
     "HoooOOonk!",
-    "Quac--- no wait. HONK!",
-    "Have you considered dwelling?",
-    "Have you considered bottling it up?",
-    "And how does that make you feel?",
+    "Qua--- HONK!",
     "Honk honk",
     "<i>Honks confidently</i>",
     "<i>Waddles around and knocks more stuff over</i>"
@@ -57,6 +54,9 @@ $(document).ready(function() {
         bodytext += `<p>You have been connected to <b>Dr. ${getRandomGoose()}</b></p><br>`
         body.html(bodytext);
         input.prop("disabled", false)
+        $("#therapy-enter")[0].play()
+        $("#session").show()
+        $("#waiting").hide()
     }, 4000); 
 
     //set up event listeners
@@ -65,35 +65,37 @@ $(document).ready(function() {
         if (event.which == 13) {
             var inputContent = input.val()
             if (inputContent != ""){
-                bodytext += `<span class="tag is-info is-large user-bubble">${inputContent}</span><br>`
+                bodytext += `<div class="bubble"><span class="tag is-info is-large user-bubble">${inputContent}</span><br></div>`
                 body.html(bodytext)
                 input.val("")
                 scrollDown()
+                input.prop("disabled", true)
 
                 //Delayed honking
                 var preHonkBodyText = bodytext
                 setTimeout(function() {
-                    bodytext = preHonkBodyText + `<span class="tag is-primary is-large">.</span>`
+                    bodytext = preHonkBodyText + `<div class="bubble"><span class="tag is-primary is-large">.</span></div>`
                     body.html(bodytext);
                     scrollDown()
                 }, 500); 
 
                 setTimeout(function() {
-                    bodytext = preHonkBodyText + `<span class="tag is-primary is-large">..</span>`
+                    bodytext = preHonkBodyText + `<div class="bubble"><span class="tag is-primary is-large">..</span></div>`
                     body.html(bodytext);
                     scrollDown()
                 }, 1000); 
 
                 setTimeout(function() {
-                    bodytext = preHonkBodyText + `<span class="tag is-primary is-large">...</span>`
+                    bodytext = preHonkBodyText + `<div class="bubble"><span class="tag is-primary is-large">...</span></div>`
                     body.html(bodytext);
                     scrollDown()
                 }, 1500); 
 
                 setTimeout(function() {
-                    bodytext = preHonkBodyText + `<span class="tag is-primary is-large">${getRandomHonk()}</span>`
+                    bodytext = preHonkBodyText + `<div class="bubble"><span class="tag is-primary is-large">${getRandomHonk()}</span></div>`
                     body.html(bodytext);
                     scrollDown()
+                    input.prop("disabled", false)
                 }, 2500); 
                 
                 
