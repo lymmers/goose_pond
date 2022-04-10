@@ -17,9 +17,16 @@ html {
 
 .chatbox {
     margin-bottom: 0 !important;
-    min-height: 184;
-    max-height: 184;
+    min-height: 20em;
+    max-height: 20em;
     overflow-y: scroll;
+}
+
+.chatbox-columns {
+    position: absolute;
+    top: 45%;
+    left: 25%;
+    width: 50%;
 }
 
 .bubble {
