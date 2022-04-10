@@ -7,17 +7,12 @@ html {
     width: 100%;
 }
 
-#session,
-#leaving {
-    display: none;
-}
-
 #door-area {
     cursor: pointer;
 }
 
 .hidden {
-    display:none;
+    display: none;
 }
 
 .chatbox {
