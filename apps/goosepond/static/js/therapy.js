@@ -1,4 +1,4 @@
-const gooseNames = ["Honk Schrader", "Waddler White", "Goostavo Fring", "Jesse Honkman"]
+const gooseNames = ["Honk Schrader", "Waddler White", "Goostavo Fring", "Jesse Honkman"];
 var freshGooseHonks = [
     "HONK!", 
     "<i>*Stares at you blankly*</i>",
@@ -10,24 +10,24 @@ var freshGooseHonks = [
     "Honk honk",
     "<i>*Honks confidently*</i>",
     "<i>*Waddles around and knocks more stuff over*</i>"
-]
+];
 
-var usedGooseHonks = []
+var usedGooseHonks = [];
 
 function getRandomHonk() {
     if (freshGooseHonks.length === 0) {
-        freshGooseHonks = freshGooseHonks.concat(usedGooseHonks)
-        freshGooseHonks = shuffle(freshGooseHonks)
-        usedGooseHonks = []
+        freshGooseHonks = freshGooseHonks.concat(usedGooseHonks);
+        freshGooseHonks = shuffle(freshGooseHonks);
+        usedGooseHonks = [];
     }
 
-    var randomHonk = freshGooseHonks.pop()
-    usedGooseHonks.push(randomHonk)
-    return randomHonk
+    var randomHonk = freshGooseHonks.pop();
+    usedGooseHonks.push(randomHonk);
+    return randomHonk;
 }
 
 function getRandomGoose() {
-    return getRandomItem(gooseNames)
+    return getRandomItem(gooseNames);
 }
 
 function scrollDown() {
@@ -48,22 +48,22 @@ $(document).ready(function() {
     input.prop("disabled", true);
 
     setTimeout(function() {
-        bodytext = "<p>Waiting to connect to a licensed goose therapist..</p>"
+        bodytext = "<p>Waiting to connect to a licensed goose therapist..</p>";
         body.html(bodytext);
     }, 1000); 
 
     setTimeout(function() {
-        bodytext = "<p>Waiting to connect to a licensed goose therapist...</p>"
+        bodytext = "<p>Waiting to connect to a licensed goose therapist...</p>";
         body.html(bodytext);
     }, 2000); 
 
     setTimeout(function() {
-        bodytext += "<br><p><i>Connected!</i></p><br>"
+        bodytext += "<br><p><i>Connected!</i></p><br>";
         body.html(bodytext);
     }, 3000); 
 
     setTimeout(function() {
-        bodytext += `<p>You have been connected to <b>Dr. ${getRandomGoose()}</b></p><br>`
+        bodytext += `<p>You have been connected to <b>Dr. ${getRandomGoose()}</b></p><br>`;
         body.html(bodytext);
         input.prop("disabled", false);
         $("#therapy-enter")[0].play();
@@ -75,43 +75,43 @@ $(document).ready(function() {
     input.on("keypress", function(event) {
         //if the return key(13) is pressed
         if (event.which == 13) {
-            var inputContent = input.val()
+            var inputContent = input.val();
             if (inputContent != ""){
-                bodytext += `<span class="bubble tag is-info is-large user-bubble">${inputContent}</span><br>`
-                body.html(bodytext)
-                input.val("")
-                scrollDown()
-                input.prop("disabled", true)
+                bodytext += `<span class="bubble tag is-info is-large user-bubble">${inputContent}</span><br>`;
+                body.html(bodytext);
+                input.val("");
+                scrollDown();
+                input.prop("disabled", true);
 
                 //Delayed honking
-                var preHonkBodyText = bodytext
+                var preHonkBodyText = bodytext;
                 setTimeout(function() {
-                    bodytext = preHonkBodyText + `<span class="doctor-bubble bubble tag is-primary is-large">.</span>`
+                    bodytext = preHonkBodyText + `<span class="doctor-bubble bubble tag is-primary is-large">.</span>`;
                     body.html(bodytext);
-                    scrollDown()
+                    scrollDown();
                 }, 500); 
 
                 setTimeout(function() {
-                    bodytext = preHonkBodyText + `<span class="doctor-bubble bubble tag is-primary is-large">..</span>`
+                    bodytext = preHonkBodyText + `<span class="doctor-bubble bubble tag is-primary is-large">..</span>`;
                     body.html(bodytext);
-                    scrollDown()
+                    scrollDown();
                 }, 1000); 
 
                 setTimeout(function() {
-                    bodytext = preHonkBodyText + `<span class="doctor-bubble bubble tag is-primary is-large">...</span>`
+                    bodytext = preHonkBodyText + `<span class="doctor-bubble bubble tag is-primary is-large">...</span>`;
                     body.html(bodytext);
-                    scrollDown()
+                    scrollDown();
                 }, 1500); 
 
                 setTimeout(function() {
-                    bodytext = preHonkBodyText + `<span class="doctor-bubble bubble tag is-primary is-large">${getRandomHonk()}</span>`
+                    bodytext = preHonkBodyText + `<span class="doctor-bubble bubble tag is-primary is-large">${getRandomHonk()}</span>`;
                     body.html(bodytext);
                     scrollDown()
                     input.prop("disabled", false)
                 }, 2500); 
             }
         }
-    })
+    });
 
     $("#door-area").hover(function() {
         if (readyForInput) {
@@ -122,5 +122,5 @@ $(document).ready(function() {
         if (readyForInput) {
             $("#active-office").attr("src", $("#session").attr("src"));
         }
-    })
-})
+    });
+});
