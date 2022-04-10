@@ -106,8 +106,9 @@ $(document).ready(function() {
                 setTimeout(function() {
                     bodytext = preHonkBodyText + `<span class="doctor-bubble bubble tag is-primary is-large">${getRandomHonk()}</span>`;
                     body.html(bodytext);
-                    scrollDown()
-                    input.prop("disabled", false)
+                    scrollDown();
+                    input.prop("disabled", false);
+                    input.focus();
                 }, 2500); 
             }
         }
