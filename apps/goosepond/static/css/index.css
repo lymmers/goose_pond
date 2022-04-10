@@ -1,6 +1,11 @@
 html {
-    background-image: linear-gradient(120deg, #2771bf, #393ce6);
+    background: linear-gradient(316deg, #2771bf, #393ce6, #574de3, #4792db);
+    background-size: 800% 800%;
     min-height: 100%;
+
+    -webkit-animation: PondColor 56s ease infinite;
+    -moz-animation: PondColor 56s ease infinite;
+    animation: PondColor 56s ease infinite;
 }
 
 body {
@@ -67,4 +72,24 @@ body {
         left: 5%;
         transform: scaleX(-1);
     }
+}
+
+.css-selector {
+
+}
+
+@-webkit-keyframes PondColor {
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
+@-moz-keyframes PondColor {
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
+@keyframes PondColor {
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
 }
