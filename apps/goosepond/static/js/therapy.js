@@ -1,5 +1,5 @@
 const gooseNames = ["Honk Schrader", "Waddler White", "Goostavo Fring", "Jesse Honkman"]
-const gooseHonks = [
+var freshGooseHonks = [
     "HONK!", 
     "<i>*Stares at you blankly*</i>",
     "<i>*Attempts to bite you*</i>",
@@ -12,14 +12,22 @@ const gooseHonks = [
     "<i>*Waddles around and knocks more stuff over*</i>"
 ]
 
+var usedGooseHonks = []
+
 function getRandomHonk() {
-    var index = Math.floor(Math.random() * gooseHonks.length);
-    return gooseHonks[index];
+    if (freshGooseHonks.length === 0) {
+        freshGooseHonks = freshGooseHonks.concat(usedGooseHonks)
+        freshGooseHonks = shuffle(freshGooseHonks)
+        usedGooseHonks = []
+    }
+
+    var randomHonk = freshGooseHonks.pop()
+    usedGooseHonks.push(randomHonk)
+    return randomHonk
 }
 
 function getRandomGoose() {
-    var index = Math.floor(Math.random() * gooseNames.length);
-    return gooseNames[index];
+    return getRandomItem(gooseNames)
 }
 
 function scrollDown() {
@@ -28,11 +36,13 @@ function scrollDown() {
 
 
 $(document).ready(function() {
-    $('map').imageMapResize();
     var body = $(".chatbox .message-body");
     var bodytext = "<p>Waiting to connect to a licensed goose therapist.</p>";
     var input = $(".input");
     var readyForInput = false;
+
+    $('map').imageMapResize();
+    freshGooseHonks = shuffle(freshGooseHonks);
 
     body.html(bodytext);
     input.prop("disabled", true);
