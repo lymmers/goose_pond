@@ -1,45 +1,31 @@
+{% extends 'base/base.html' %}
 {% load static %}
-<html>
-    <head>
-        <title>The Pond</title>
 
-        <!--Favicons for different platforms-->
-        <link rel="icon" type="image/x-icon" href="{% static '/images/favicon/favicon.ico' %}">
-        <link rel="apple-touch-icon" sizes="180x180" href="{% static '/images/favicon/apple-touch-icon.png' %}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{% static '/images/favicon/favicon-32x32.png' %}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{% static '/images/favicon/favicon-16x16.png' %}">
-        <link rel="manifest" href="{% static '/images/favicon/site.webmanifest' %}">
+{% block title %}The Pond{% endblock %}
 
-        <link rel="stylesheet" href="{% static 'css/index.css' %}">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="{% static 'js/utils.js' %}"></script>
-        <script src="{% static 'js/index.js' %}"></script>
-    </head>
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock head %}
+
+{% block body %}
+    <img id="top-bar-image" src="{% static 'images/top_bar.png' %}">
     
-    <body>
-        <img id="top-bar-image" src="{% static 'images/top_bar.png' %}">
-        
-        <!-- THE GEESE -->
-        {% for goose in geese %}
-            <div class="goose-container">
-                <div 
-                  {% if goose.flipped %}
-                    class="goose flipped"
-                  {% else %}
-                    class="goose"
-                  {% endif %}
-                >
-                    <a href="{{ goose.url }}">
-                        <img src="{% static goose.image %}">
-                    </a> 
-                </div>
+    <!-- THE GEESE -->
+    {% for goose in geese %}
+        <div class="goose-container">
+            <div 
+              {% if goose.flipped %}
+                class="goose flipped"
+              {% else %}
+                class="goose"
+              {% endif %}
+            >
+                <a href="{{ goose.url }}">
+                    <img src="{% static goose.image %}">
+                </a> 
             </div>
-        {% endfor %}
-    
-    </body>
+        </div>
+    {% endfor %}
 
-
-
-
-
-</html>
+{% endblock body %}
