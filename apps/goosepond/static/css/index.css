@@ -6,6 +6,15 @@ html {
     -webkit-animation: PondColor 56s ease infinite;
     -moz-animation: PondColor 56s ease infinite;
     animation: PondColor 56s ease infinite;
+
+    /* hide scrollbar but allow scrolling */
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+}
+
+html::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
 }
 
 body {
@@ -72,10 +81,6 @@ body {
         left: 5%;
         transform: scaleX(-1);
     }
-}
-
-.css-selector {
-
 }
 
 @-webkit-keyframes PondColor {
