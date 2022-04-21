@@ -14,6 +14,6 @@ class Index(View):
         """Our main index view."""
         return render(
             request,
-            "index.html",
+            "pages/index.html",
             {"geese": GEESE}
         )

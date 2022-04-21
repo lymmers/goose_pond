@@ -7,5 +7,5 @@ class Therapy(View):
         """Our main index view."""
         return render(
             request,
-            "therapy.html",
+            "pages/therapy.html",
         )

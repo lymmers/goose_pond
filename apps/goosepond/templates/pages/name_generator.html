@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Name Goosifier{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/goosename.css' %}">
+    <script src="{% static 'js/external/htmx.min.js' %}" defer></script>
+{% endblock head %}
+
+{% block body %}
+    <h2 id="goosename" class="title is-2">Honk Biterton</h2>
+    <form
+        hx-post="{% url "goose_name_component" %}"
+        hx-target="#goosename"
+        hx-swap="outerHTML"
+    >
+        {% csrf_token %}
+        <input class="input is-large" type="text" placeholder="Large input" name="gooseinput">
+        <button class="button is-success" type="submit">
+            Get Goosed!
+        </button>
+    </form>
+    
+
+{% endblock body %}
