@@ -46,3 +46,8 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+// Make sure any imagemaps will resize along with assets they're attached to.
+$(document).ready(function() {
+    $('map').imageMapResize();
+});
