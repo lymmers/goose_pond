@@ -1,6 +1,7 @@
 {% load static %}
 {% load django_simple_bulma %}
 
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -28,6 +29,7 @@
 
         <!-- Extension imports -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="{% static 'js/external/htmx.min.js' %}" defer></script>
         <script src="{% static 'js/utils.js' %}"></script>
         {% bulma %}
         {% font_awesome %}
@@ -38,7 +40,7 @@
 
     </head>
     
-    <body>
+    <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
         {% block body %}{% endblock body %}
     </body>
 
