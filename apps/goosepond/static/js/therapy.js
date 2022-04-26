@@ -41,7 +41,6 @@ $(document).ready(function() {
     var input = $(".input");
     var readyForInput = false;
 
-    $('map').imageMapResize();
     freshGooseHonks = shuffle(freshGooseHonks);
 
     body.html(bodytext);
