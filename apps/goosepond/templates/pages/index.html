@@ -12,7 +12,7 @@
 
     <!-- The reeds -->
     <div>
-      <img id="reed-image" usemap="#reed-map" src="{% static 'images/cattails_only.svg' %}">
+      <img id="reed-image" width="100%" usemap="#reed-map" src="{% static 'images/cattails_only.svg' %}">
       <map name="reed-map" id="reed-map">
         <area id="reed-area" coords="834,55,1007,224" shape="rect">
         <area href="{% url "goosename" %}" id="shack-area" coords="1467,146,1486,136,1500,132,1505,153,1545,183,1637,168,1655,139,1632,44,1640,37,1628,25,1603,36,1596,15,1515,32,1515,49,1493,44,1486,53,1494,68,1498,117,1486,124,1467,114,1449,104,1442,81,1434,71,1420,76,1425,88,1434,93,1430,104,1430,115,1432,129,1447,132,1454,139,1456,151,1447,156,1461,161,1474,153" shape="poly">
@@ -21,8 +21,8 @@
 
     <!-- Goosegame goose -->
     <div id="goose-game-goose" class="idle">
-      <img id="idle" usemap="#reed-map"  src="{% static 'images/geese/goosegame.png' %}">
-      <img id="run" src="{% static 'images/geese/goosegamerun.png' %}">
+      <img id="idle" width="100%" src="{% static 'images/geese/goosegame_idle.svg' %}">
+      <img id="run" width="100%" src="{% static 'images/geese/goosegame_run.svg' %}">
     </div>
 
     <!--Goosegame honk-->

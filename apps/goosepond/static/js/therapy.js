@@ -43,6 +43,10 @@ $(document).ready(function() {
 
     freshGooseHonks = shuffle(freshGooseHonks);
 
+    // Dynamically resizing imagemap
+    imageMap = new ImageMap(document.getElementById('door-map'));
+    imageMap.resize();
+
     body.html(bodytext);
     input.prop("disabled", true);
 

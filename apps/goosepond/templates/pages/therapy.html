@@ -5,7 +5,7 @@
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/therapy.css' %}">
-    <script src="{% static 'js/external/imageMapResizer.min.js' %}"></script>
+    <!-- <script src="{% static 'js/external/imageMapResizer.min.js' %}"></script> -->
     <script src="{% static 'js/therapy.js' %}"></script>
 {% endblock head %}
 
@@ -27,7 +27,7 @@
     <div>
         <img class="office" id="active-office" usemap="#door-map" src="{% static '/images/therapy_office/therapy_office_waiting.png' %}">
         <map name="door-map" id="door-map">
-            <area id="door-area" href="/" coords="717,105 753,112 838,115 871,113 872,172 871,238 895,361 822,360 787,357 743,350 718,106 728,107 732,227 " shape="polygon">
+            <area id="door-area" href="/" coords="996,147,1215,156,1215,203,1215,322,1231,430,1251,503,1029,486" shape="polygon">
         </map>
     </div>
 

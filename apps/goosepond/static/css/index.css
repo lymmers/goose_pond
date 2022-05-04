@@ -47,8 +47,7 @@ body {
 
 #goose-game-goose {
     position: absolute;
-    left: 40%;
-    top: 4.6em; 
+    width: 100%;
 }
 
 #goose-game-goose.run #idle {
@@ -63,11 +62,6 @@ body {
     animation-name: run;
     animation-duration: 16s;
     animation-fill-mode: forwards;
-}
-
-#goose-game-goose.idle {
-    left: 45%;
-    top: 4.6em;
 }
 
 #reed-area {
@@ -125,10 +119,12 @@ body {
 
 @keyframes run {
     from {
-        left: 40%;
+        left: 0%;
+        top: 0%;
     }
     to {
-        left: -80%;
+        top: -20%;
+        left: -120%;
     }
 }
 
